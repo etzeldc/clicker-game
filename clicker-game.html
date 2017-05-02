@@ -22,16 +22,16 @@
 </head>
 <body>
     <button id="clickme"><img src="http://i0.kym-cdn.com/photos/images/original/000/285/965/681.png" width="25%" height="25%"></button> <!-- a button to click on -->
-    Click Nigel to add Blarghs!
-    <div id="points"></div>
+    Click Nigel to add Blarghs! <!-- text to provide instructions -->
+    <div id="points"></div> <!-- creates a field to display the value of the points in -->
     
        
-    <h3>Click SMASHING to BUY A SUPER NIGEL FOR 100 BLARGHS!!</h3>
-    <button id="buySuperNigel"><img src="https://img.memesuper.com/48dfeb915c925f9fddd6830612a1e927_smashing-meme-memesuper-nigel-thornberry-smashing-meme_580-443.jpeg" width='50%' height='50%'></button>
-    <div id="mashers"></div>
+    <h3>Click SMASHING to BUY A SUPER NIGEL FOR 100 BLARGHS!!</h3> <!-- text that provides instruction -->
+    <button id="buySuperNigel"><img src="https://img.memesuper.com/48dfeb915c925f9fddd6830612a1e927_smashing-meme-memesuper-nigel-thornberry-smashing-meme_580-443.jpeg" width='50%' height='50%'></button> <!-- a button to buy a "super nigel" -->
+    <div id="mashers"></div> <!-- a field to display the amount of super nigels -->
 
-    <div id="devil"></div>
-    <div id="sevenFive"></div>
+    <div id="devil"></div> <!-- a field to display a graphic -->
+    <div id="sevenFive"></div> <!-- a field to display a graphic -->
 
     <script>
         var points = 0; // setting a variable to contain the value of the points
@@ -48,37 +48,37 @@
             showCounts(); // and shows that new valiue of var points
         }
         
-        function specialties() {
-            if (points === 666) {
-                points = 0;
-                alert("Nigel stole all your blarghs!");
-				$('#devil').append('<img src="https://s-media-cache-ak0.pinimg.com/originals/15/c2/a0/15c2a05c0a35b4e37bab9c8ff4f2831f.gif">');
+        function specialties() { // a function that adds more conditions to the game
+            if (points === 666) { // this condition marks when var points' count hits 666...
+                points = 0; // it sets your points back to zero,
+                alert("Nigel stole all your blarghs!"); // alerts you as to whats going on,
+				$('#devil').append('<img src="https://s-media-cache-ak0.pinimg.com/originals/15/c2/a0/15c2a05c0a35b4e37bab9c8ff4f2831f.gif">'); // and displays an image in the div id'ed devil
             }
-            if (points === 750) {
-                $('#sevenFive').append('<img src="https://media2.giphy.com/media/vkK5pezseYous/giphy.gif"> + "WOW THAT IS A LOT OF CLICKS"');
+            if (points === 750) { // this condition checks for when var points is equal to 750...
+                $('#sevenFive').append('<img src="https://media2.giphy.com/media/vkK5pezseYous/giphy.gif"> + "WOW THAT IS A LOT OF CLICKS"'); // and displays an image in the div id'ed sevenFive
                 
             }
-            if (points % 111 === 0 && mashers > 0) {
-                mashers *= 3;
-                alert("You've reached a number divisible by 111! That triples your Suoper Nigels!")
+            if (points % 111 === 0 && mashers > 0) { // this condition checks that points is divisible by 111 and the mashers var has at least one...
+                mashers *= 3; // multiplies the value of var mashers by 3,
+                alert("You've reached a number divisible by 111! That triples your Suoper Nigels!") // and alerts you as to what is going on
             }
         }
 
         $(document).ready(function() { // waits for page to load before executing
             $('#clickme').click(function() { // when the 'Click Me' button (with id='clickme') is clicked...
                 points ++; // we add one point to the points variable,
-                showCounts(); // we show what the current point value is
-                specialties(); //
+                showCounts(); // we show what the current point value is,
+                specialties(); // we check to make sure if any of the new conditions have been met
             })
 
             $('#buySuperNigel').click(function() { // when the 'Buy Masher' button is clicked...
-                if (points >= 100) {
+                if (points >= 100) { // we check if there are at least 100 points,
                     points -= 100; // the var points' value is reduced by 100,
                     mashers ++; // the var mashers' value is increased by one, 
                     showCounts(); // and displays the current point value is
-                    $('#smashing').append('<img src=" " width="10%" height="10%">');
-                } else if (points < 100) {
-                    alert("You do not have enough Blarghs. You need 100 to purchase a Super Nigel.")
+                    $('#smashing').append('<img src="https://media0.giphy.com/media/TvLJmJ9h7khdC/giphy.gif#0-grid1" width="10%" height="10%">'); // dispays an image in the div id'ed smashing
+                } else if (points < 100) { // otherwise, when the point value is less than 100...
+                    alert("You do not have enough Blarghs. You need 100 to purchase a Super Nigel.") // you are alerted that you cant afford a super nigel
                 }
             })
 

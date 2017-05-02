@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- code.jquery.com - uncompressed -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"
+    ></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: monospace;
+            font-size: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="clickme"><img src="http://i0.kym-cdn.com/photos/images/original/000/285/965/681.png" width="25%" height="25%"></button> <!-- a button to click on -->
+    Click Nigel to add Blarghs!
+    <div id="points"></div>
+    
+       
+    <h3>Click SMASHING to BUY A SUPER NIGEL FOR 100 BLARGHS!!</h3>
+    <button id="buySuperNigel"><img src="https://img.memesuper.com/48dfeb915c925f9fddd6830612a1e927_smashing-meme-memesuper-nigel-thornberry-smashing-meme_580-443.jpeg" width='50%' height='50%'></button>
+    <div id="mashers"></div>
+
+    <div id="devil"></div>
+    <div id="sevenFive"></div>
+
+    <script>
+        var points = 0; // setting a variable to contain the value of the points
+
+        var mashers = 0; // setting a variable to contain the amount of mashers we have
+
+        function showCounts() { // a function that will display the value of points
+            $('#points').text("You have " + points + " Blarghs."); // displays the value of the points var as text in the associated div
+            $('#mashers').text("You have " + mashers + " Super Nigels."); // displays the value of the mashers var as text imn the associated div
+        }
+
+        function runMashers() { // a function that uses the mashers
+            points += mashers; // adds the value of the var mashers to the var points,
+            showCounts(); // and shows that new valiue of var points
+        }
+        
+        function specialties() {
+            if (points === 666) {
+                points = 0;
+                alert("Nigel stole all your blarghs!");
+				$('#devil').append('<img src="https://s-media-cache-ak0.pinimg.com/originals/15/c2/a0/15c2a05c0a35b4e37bab9c8ff4f2831f.gif">');
+            }
+            if (points === 750) {
+                $('#sevenFive').append('<img src="https://media2.giphy.com/media/vkK5pezseYous/giphy.gif"> + "WOW THAT IS A LOT OF CLICKS"');
+                
+            }
+            if (points % 111 === 0 && mashers > 0) {
+                mashers *= 3;
+                alert("You've reached a number divisible by 111! That triples your Suoper Nigels!")
+            }
+        }
+
+        $(document).ready(function() { // waits for page to load before executing
+            $('#clickme').click(function() { // when the 'Click Me' button (with id='clickme') is clicked...
+                points ++; // we add one point to the points variable,
+                showCounts(); // we show what the current point value is
+                specialties(); //
+            })
+
+            $('#buySuperNigel').click(function() { // when the 'Buy Masher' button is clicked...
+                if (points >= 100) {
+                    points -= 100; // the var points' value is reduced by 100,
+                    mashers ++; // the var mashers' value is increased by one, 
+                    showCounts(); // and displays the current point value is
+                    $('#smashing').append('<img src=" " width="10%" height="10%">');
+                } else if (points < 100) {
+                    alert("You do not have enough Blarghs. You need 100 to purchase a Super Nigel.")
+                }
+            })
+
+            setInterval(runMashers, 1000); // a new function that creates an infintie loop where runMashers is referenced every 1000 millseconds after it's initial call 
+        });
+    </script>
+</body>
+</html>
